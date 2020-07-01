@@ -1,0 +1,16 @@
+{
+  "name": "m04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Ex01.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "node transform.js"
+  },
+  "keywords": [],
+  "author": "MCesar",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
+}
