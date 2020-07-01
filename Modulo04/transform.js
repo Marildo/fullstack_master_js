@@ -55,9 +55,11 @@ const dados = [
   }
 ]
 
-let datas = Array.from(new Set(dados.map((i) => i.dataHistorico)))
-
-//console.log(datas)
+/*rows: [
+    { Data: '01/01', Tela: 1523, Houpe: 1000 },
+    { Data: '02/01', Tela: 1423, Houpe: 1050 },
+    { Data: '03/01', Tela: 1623, Houpe: 1200 }
+  ]  */
 
 const getData = (item) => {
   item['data'] = new Date(parseInt(item.dataHistorico)).toLocaleDateString()
@@ -78,18 +80,6 @@ const somaSaldo = (item) => {
   return item
 }
 
-const agruparData = (c, n) => {
-  if (c.data === n.data) {
-    let a = {
-      ...c,
-      values: []
-    }
-    a.values.push(c)
-    return a
-  }
-  return n
-}
-
 const fase1 = dados.map(getData)
 const fase2 = fase1.map(criarTitulos)
 
@@ -97,11 +87,11 @@ const fase3 = fase2.map(somaSaldo)
 fase3.sort()
 console.log(fase3)
 
-const fase4 = fase3.reduce(agrupar)
-console.log(fase4)
+let datas = Array.from(new Set(fase3.map((i) => i.data)))
 
-/*rows: [
-    { Data: '01/01', Tela: 1523, Houpe: 1000 },
-    { Data: '02/01', Tela: 1423, Houpe: 1050 },
-    { Data: '03/01', Tela: 1623, Houpe: 1200 }
-  ]  */
+console.log(datas)
+
+for (let i = 0; i < datas.length; i++) {
+  const values = fase3.filter((i) => i.data === datas[i])
+  console.log(values)
+}
