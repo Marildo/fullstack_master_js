@@ -16,11 +16,8 @@ routes.get('/', (request: Request, response: Response, next: NextFunction) => {
 routes.get('/users', getUsers)
 
 routes.post('/users', saveUser)
-
 routes.get('/users/:id', findOne)
-
 routes.put('/users/:id', update)
-
 routes.delete('/users/:id', remove)
 
 export default routes
