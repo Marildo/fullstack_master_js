@@ -133,11 +133,6 @@ const getData = (item) => {
   return item
 }
 
-const criarTitulos = (item) => {
-  item[item.title] = 0
-  return item
-}
-
 const somaSaldo = (item) => {
   item.saldo = item.saldoAtivos + item.saldoCaixa
   delete item.saldoAtivos
